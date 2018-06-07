@@ -5,6 +5,7 @@ import {
     StyleSheet,
     TextInput
 } from 'react-native';
+import {colors} from '../constants'
 export default class Login extends React.Component {
     state={
         correo:'',
@@ -14,6 +15,7 @@ export default class Login extends React.Component {
         this.setState({
            [key]:value 
         });
+        console.debug(this.state)
     }
     render() { 
         return(
@@ -37,29 +39,4 @@ export default class Login extends React.Component {
             );
     } 
 }
-const styles=StyleSheet.create({
-        input:{
-            color:'#fff',
-            margin:10,
-            paddingHorizontal:8,
-            height:50,
-              justifyContent:'center',
-            textAlign:'center'
-        },
-        container:{
-            backgroundColor:'#607d8b',
-            flex:1,
-            justifyContent:'center'
-        },
-    header:{
-        color:'#fff',
-        position:'absolute',
-        top:55,
-        left:130,
-        justifyContent: 'center', 
-        alignItems: 'center',
-        fontSize:35,
-        textAlign:'center',
-        fontWeight: 'bold'
-        }
-    });
+const styles=StyleSheet.create(colors.generalStyle);
