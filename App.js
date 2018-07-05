@@ -11,7 +11,6 @@ import {
 
 import Tabs from './src'
 import {colors} from './src/constants'
-type Props = {};
 export default class App extends Component {
     render() {
         return ( 

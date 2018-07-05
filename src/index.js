@@ -20,9 +20,9 @@ const InitNav = createStackNavigator({
     navigationOptions:{
         headerStyle:{
             backgroundColor:colors.primary
+
         },
         headerTintColor:'#fff'
-        
     }
 });
 

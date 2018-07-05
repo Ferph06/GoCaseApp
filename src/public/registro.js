@@ -1,32 +1,51 @@
 import React from 'react';
 import {
     View,
+    TextInput,
     Text,
-    StyleSheet
+    StyleSheet,
+    ScrollView,
+    Button,
+    ToastAndroid
 } from 'react-native';
-import {colors} from '../constants'
-import t from 'tcomb-form-native'; 
-const Form = t.form.Form;
-const UserForm=t.struct({
-  Nombre:t.String,
-    ApellidoMaterno:t.String,
-    ApelldioPaterno:t.String,
-    Correo:t.String,
-    Password:t.String
-    
-});
-const options={}
+import {colors} from '../constants';
+
+import API from '../components/api';
 export default class Registro extends React.Component {
+    API=new API('user',false);
+    state={
+        name:'',
+        email:'',
+        password:''
+    }
+    /**
+     * 
+     */
+    onChangeText=(key,value)=>{
+        this.setState({
+            [key]:value
+        });
+    }
+    /**
+     * 
+     */
+    onPressIn =() => {
+       
+    }
+  
     render() {
           return(
-            <View 
-              style={style.container}
-              >
-                <Form  ref='form'
-                type={UserForm}
-                options={options}
-                />
-            </View>
+            <ScrollView style={{padding:20,backgroundColor:'#607d8b',flex:1}}>
+                <Text  style={{fontSize:30,fontWeight:'bold',alignSelf:'auto',justifyContent:'center',color:'#fff'}}>
+                    Registro
+                 </Text>
+                 <TextInput placeholder="Nombre" style={style.input} onChangeText={val=>this.onChangeText('name',val)} />
+                 <TextInput  placeholder="Email" style={style.input} onChangeText={val=>this.onChangeText('email',val)}/>
+                 <TextInput placeholder="Password" style={style.input} secureTextEntry={true} onChange={val=>this.onChangeText('password',val)}/>
+                 <View width={100} left={115} >
+                 <Button title='Registrar'  onPress={this.onPressIn} />
+                 </View>
+            </ScrollView>
         );
     }
 }
