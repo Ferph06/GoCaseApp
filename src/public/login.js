@@ -10,9 +10,6 @@ import {
     ScrollView
 } from 'react-native';
 import {colors} from '../constants';
-
-import  Componentes from '../components/general';
-
 import API from '../components/api'
 /**
  * Clase la cual sirve como controlador y vista de la parte
@@ -27,7 +24,7 @@ export default class Login extends React.Component {
 
     API=new API('user',true);
     
-    /**
+    /** 
      * Funcion con la cual se establece el valor a los atributos de la clase
      * @param key identificador unico al cual se le asignara su valor
      * @param value valor que se le asignara a la llave
